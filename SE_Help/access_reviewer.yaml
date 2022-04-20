@@ -1,0 +1,94 @@
+kind: role
+metadata:
+  description: Review Access Requests and Config 
+  id: xxx
+  name: access_reviewer
+spec:
+  allow:
+    logins:
+    - no-login-fd9e7bba-bc4f-4220-9686-e4f9cf615a15
+    rules:
+    - resources:
+      - session
+      verbs:
+      - list
+      - read
+    - resources:
+      - user
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - role
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - oidc
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - saml
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - github
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - cluster_audit_config
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - cluster_auth_preference
+      verbs:
+      - list
+      - create
+      - read
+      - update
+      - delete
+    - resources:
+      - session
+      verbs:
+      - list
+      - read
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+  deny: {}
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: true
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v4
