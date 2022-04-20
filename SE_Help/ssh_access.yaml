@@ -1,0 +1,30 @@
+kind: role
+metadata:
+  description: Access linux resources
+  id: xxxx
+  name: Server Access
+spec:
+  allow:
+    logins:
+    - '{{internal.logins}}'
+    - ubuntu
+    - ec2-user
+    node_labels:
+      '*': '*'
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+  deny: {}
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: true
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+version: v4
