@@ -1,0 +1,23 @@
+kind: role
+metadata:
+  id: xxx
+  name: aws-console-access
+spec:
+  allow:
+    app_labels:
+      '*': '*'
+    aws_role_arns:
+    - arn:aws:iam::accountid:role/MacReadOnly
+  deny: {}
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v4
