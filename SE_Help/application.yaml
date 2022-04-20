@@ -1,0 +1,28 @@
+kind: role
+metadata:
+  id: xxx
+  name: grafana_user
+spec:
+  allow:
+    app_labels:
+      - Grafana
+    db_labels:
+      x: x
+    kubernetes_labels:
+      x: x
+    request:
+      roles:
+      - ssh_access #app user can request additional role to use teleport to ssh into web app hosting node to troubleshoot if needed
+  deny: {}
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v4
