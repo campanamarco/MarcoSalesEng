@@ -1,0 +1,37 @@
+kind: role
+metadata:
+  id: xxx
+  name: DB Elevated #This role can access ALL DBs if needed
+spec:
+  allow:
+    app_labels:
+      x: x
+    kubernetes_labels:
+      x: x
+    db_labels:
+      '*': '*'
+    db_names:
+      '*': '*'
+    db_users:
+      '*': '*'
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+  deny:
+    logins:
+    - guest
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v3
