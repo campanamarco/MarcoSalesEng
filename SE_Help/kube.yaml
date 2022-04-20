@@ -1,0 +1,33 @@
+kind: role
+metadata:
+  description: Access K8s Clusters
+  id: xxx
+  name: kube
+spec:
+  allow:
+    kubernetes_groups:
+    - '{{internal.kubernetes_groups}}'
+    - systems:masters
+    kubernetes_labels:
+      '*': '*'
+      cluster type: eks
+      env: prod
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+  deny: {}
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: true
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v4
