@@ -1,0 +1,40 @@
+kind: role
+metadata:
+  id: xxx
+  name: DB Specific #this role would only be used to see and access specified DBs in this file under DB_Names or Labels 
+spec:
+  allow:
+    app_labels:
+      x: x
+    kubernetes_labels:
+      x: x
+    db_labels:
+    - RDS Database
+    db_names:
+    - '{{internal.db_names}}'
+    db_users:
+    - '{{internal.db_users}}'
+    rules:
+    - resources:
+      - event
+      verbs:
+      - list
+      - read
+    request:
+      roles:
+      - elevated_db #DB Analyst can request elevated DB Role to see ALL Databases in case someone is OOO or this is an issue
+  deny:
+    logins:
+    - guest
+  options:
+    cert_format: standard
+    desktop_clipboard: true
+    enhanced_recording:
+    - command
+    - network
+    forward_agent: false
+    max_session_ttl: 30h0m0s
+    port_forwarding: true
+    record_session:
+      desktop: true
+version: v3
