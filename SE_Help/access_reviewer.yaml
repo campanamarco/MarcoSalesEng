@@ -79,6 +79,10 @@ spec:
       verbs:
       - list
       - read
+request:
+      roles:
+      - access
+      - db
   deny: {}
   options:
     cert_format: standard
